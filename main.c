@@ -61,6 +61,7 @@ int main() {
         else if(strcmp(command, "show Matrix")==0){
             show_matrix(actual_matrix);
         }
+        delete_matrix(actual_matrix);
     }
 
 

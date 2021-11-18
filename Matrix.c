@@ -25,7 +25,7 @@ void show_matrix(Matrix *m){
 
 int ** create_table(int x, int y){
     int **table = (int **) malloc(y * sizeof(int *));
-    for(int i=0; i<x; ++i){
+    for(int i=0; i<y; ++i){
         int *row = (int *) malloc(x * sizeof(int));
         table[i] = row;
 
@@ -47,8 +47,9 @@ Matrix* create_matrix(int x, int y){
     new_M->x = x;
     new_M->y = y;
     new_M->table = create_table(x, y);
-    zero_down(new_M);
+
     new_M->temp_table = create_table(x, y);
+    zero_down(new_M);
     copy_table(new_M);
     return new_M;
 }
