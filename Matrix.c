@@ -67,8 +67,7 @@ void copy_table(Matrix *m){
 
     for(int i=0; i <m->y; ++i){
         for(int k=0; k<m->x; ++k){
-            int value = m->table[i][k];
-            m->temp_table[i][k] = value;
+            m->temp_table[i][k] = m->table[i][k];
         }
     }
     printf("\n");
@@ -85,7 +84,6 @@ void free_table(int **table, int y){
 void delete_matrix(Matrix *m){
     free_table(m->table, m->y);
     free_table(m->temp_table, m->y);
-
     free(m);
 }
 
@@ -93,7 +91,7 @@ void change_cell(Matrix *matrix, int x, int y){
     int m_x = matrix->x;
     int m_y = matrix->y;
 
-    if(x>=0 && y>=0 && m_x>=x && m_y>=y){
+    if(x>=0 && y>=0 && m_x>x && m_y>y){
 
         if(matrix->table[y][x] == 0){
             matrix->table[y][x] = 1;

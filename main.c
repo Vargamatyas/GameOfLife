@@ -4,14 +4,14 @@
 #include <string.h>
 #include "Matrix.h"
 #include "debugmalloc.h"
-
+#include "file.h"
 
 
 int main() {
     bool run = true;
     Matrix* actual_matrix = NULL;
     //glider for testing
-    actual_matrix = create_matrix(10, 10);
+    actual_matrix = create_matrix(50, 20);
     change_cell(actual_matrix, 4, 3);
     change_cell(actual_matrix, 4, 1);
     change_cell(actual_matrix, 4, 2);
@@ -23,7 +23,7 @@ int main() {
     while (run){
         char command[100+1];
         int x =0, y=0, n=0;
-
+        char file_name[100];
         printf("Please type some commands, for help type: 'help'\n");
         fgets(command, 100, stdin);
 
@@ -42,7 +42,7 @@ int main() {
             show_matrix(actual_matrix);
         }
         else if(sscanf(command, "auto %d", &n) == 1){
-            printf("meeegy");
+
             if(actual_matrix == NULL){
                 //error_handling(1);
             }
@@ -61,11 +61,19 @@ int main() {
         else if(strcmp(command, "show Matrix")==0){
             show_matrix(actual_matrix);
         }
-        delete_matrix(actual_matrix);
+
+        else if(sscanf(command, "save as %s", file_name)==1){
+            save_Matrix(actual_matrix, file_name);
+        }
+
+        else if(sscanf(command, "load %s", file_name) == 1){
+            actual_matrix = load_Matrix(file_name);
+        }
+        else perror("utasitas nem felismerheto, probald meg ismet, segitsegert ird: \"help\"");
     }
 
 
-
+    delete_matrix(actual_matrix);
 
     return 0;
 }
