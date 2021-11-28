@@ -1,11 +1,11 @@
 //
 // Created by Varga Mátyás on 10/31/21.
 //
-
-#ifndef GAME_OF_LIFE_FILE_H
 #include "Matrix.h"
 
+#ifndef GAME_OF_LIFE_FILE_H
 #define GAME_OF_LIFE_FILE_H
+
 
 void save_Matrix(Matrix* m, char *name);
 

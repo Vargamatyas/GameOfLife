@@ -8,14 +8,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
-#ifndef GAME_OF_LIFE_ENVIRONMENT_H
-#define GAME_OF_LIFE_ENVIRONMENT_H
 
+
+
+#ifndef GAME_OF_LIFE_ENVIRONMENT_H
+
+#define GAME_OF_LIFE_ENVIRONMENT_H
 #ifdef _WIN32
-#include <Windows.h>
+
 #else
 #include <unistd.h>
 #endif
+
 typedef struct Matrix{
     int x;
     int y;

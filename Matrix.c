@@ -2,7 +2,6 @@
 // Created by Varga Mátyás on 11/12/21.
 //
 
-
 #include "Matrix.h"
 
 void cls(Matrix * m){
@@ -99,7 +98,7 @@ void change_cell(Matrix *matrix, int x, int y){
         }else matrix->table[y][x] = 0;
     }
 
-    else perror("Cell cordinate out of range");
+    else ;
 
 }
 
